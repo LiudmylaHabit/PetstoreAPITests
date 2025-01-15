@@ -6,6 +6,7 @@ Test coverage: Pet controller, endpoint POST /pet
 XML content type is out of the scope.*
 
 ### 1. It is possible to create a pet 
+
 Priority: High 
 
 **Steps:**
@@ -34,6 +35,7 @@ Priority: High
 3. Send POST request https://petstore.swagger.io/v2/pet
 
 **Expected result:**
+
 * Response status code is 200
 * Response content type is equal to `application/json`
 * Response body parameters equal to requested
@@ -42,7 +44,8 @@ Priority: High
 **Postconditions:** Delete created pet with id `123451` using request DELETE /pet/{petId}
 
 ### 2. Pet can be created when sending only required parameters
-Priority: High 
+
+Priority: High  
 
 **Steps:**
 1. Set Header Content-Type with value `application/json`
@@ -58,6 +61,7 @@ Priority: High
 3. Send POST request https://petstore.swagger.io/v2/pet
 
 **Expected result:**
+
 * Response status code is 200
 * Response content type is equal to `application/json`
 * Response body parameter *id* exists and have integer value 
@@ -67,6 +71,7 @@ Priority: High
 **Postconditions:** Delete created pet using request DELETE /pet/{petId}
 
 ### 3. Pet can be created with ‘sold’ status 
+
 Priority: Medium
 
 **Steps:**
@@ -86,6 +91,7 @@ Priority: Medium
 4. Send POST request https://petstore.swagger.io/v2/pet
 
 **Expected result:**
+
 * Response status code is 200
 * Response content type is equal to `application/json`
 * Response body parameter 'status' have value 'sold'
@@ -93,7 +99,9 @@ Priority: Medium
 **Postconditions:** Delete created pet with id `123453` using request DELETE /pet/{petId}
 
 ### 4. Pet can not be created if required parameter ‘name‘ is missing 
+
 Priority: High
+
 **Steps:**
 1. Set Header Content-Type with value `application/json`
 2. Add request body in JSON format without 'name' parameter:
@@ -119,6 +127,7 @@ Priority: High
 3. Send POST request https://petstore.swagger.io/v2/pet
 
 **Expected result:**
+
 * Response status code is 400
 * Respose body equals to:
 ```
@@ -129,7 +138,9 @@ Priority: High
 ```
 
 ### 5. Pet can not be created if parameter have invalid value
+
 Priority: High
+
 **Steps:**
 1. Set Header Content-Type with value `application/json`
 2. In request body set to parameter `id` value `test`
@@ -145,7 +156,9 @@ Priority: High
 }
 ```
 4. Send POST request https://petstore.swagger.io/v2/pet
+   
 **Expected result:**
+
 * Response status code is 400
 * Respose body equals to:
 ```
@@ -157,7 +170,9 @@ Priority: High
 ```
 
 ### 6. Pet can’t be created with null value of parameter 'name'
+
 Priority: High
+
 **Steps:**
 1. Set Header Content-Type with value `application/json`
 2. In request body set to parameter `name` value `null`
@@ -172,7 +187,9 @@ Priority: High
 }
 ```
 4. Send POST request https://petstore.swagger.io/v2/pet
+   
 **Expected result:**
+
 * Response status code is 400
 * Respose body equals to:
 ```
@@ -183,12 +200,16 @@ Priority: High
 }
 ```
 ### 7. Pet can not be created if empty request send 
+
 Priority: High
+
 **Steps:**
 1. Set Header Content-Type with value `application/json`
 2. Add an empty JSON body
 3. Send POST request https://petstore.swagger.io/v2/pet
+
 **Expected result:**
+
 * Response status code is 400
 * Respose body equals to:
 ```
@@ -199,8 +220,11 @@ Priority: High
 }
 ```
 ### 8. Pet can not be created with duplicated id 
+
 Priority: High
+
 **Preconditions:** Pet with id `123458` already exist in the system.
+
 **Steps:**
 1. Set Header Content-Type with value `application/json`
 2. In request body set to parameter `id` value `123458`
@@ -217,6 +241,7 @@ Priority: High
 4. Send POST request https://petstore.swagger.io/v2/pet
 
 **Expected result:**
+
 * Response status code is 400
 * Respose body equals to:
 ```
@@ -228,7 +253,9 @@ Priority: High
 ```
 
 ### 9. Pet can not be created with status out of valid range 
+
 Priority: High
+
 **Steps:**
 1. Set Header Content-Type with value `application/json`
 2. In request body set to parameter `status` value `unavailable`
@@ -245,6 +272,7 @@ Priority: High
 4. Send POST request https://petstore.swagger.io/v2/pet
 
 **Expected result:**
+
 * Response status code is 400
 * Respose body equals to:
 ```
@@ -256,6 +284,7 @@ Priority: High
 ```
 
 ### 10. Response Time for pet creation endpoint less than 1 sec
+
 Priority: High 
 
 **Steps:**
@@ -284,6 +313,7 @@ Priority: High
 3. Send POST request https://petstore.swagger.io/v2/pet
 
 **Expected result:**
+
 * Response status code is 200
 * Response time is < 1s
 
